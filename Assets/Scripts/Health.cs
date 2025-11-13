@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     {
         //Debug.Log($"in TakeDamage function");
         healthAmount -= amount;
-        //GameFeel.AddCameraShake(0.1f);
+        GameFeel.AddCameraShake(0.1f);
         if (healthAmount <= 0)
         {
             GameManager.instance.Restart();
@@ -18,9 +18,6 @@ public class Health : MonoBehaviour
 
     public static void TryDamageTarget(GameObject target, int damageAmount)
     {
-        //Debug.Log($"in TryDamageTarget function");
-       //Debug.Log($"Target: {target.name}");
-        //Debug.Log($"DamageAmount: {damageAmount}");
         Health targetHealth = target.GetComponent<Health>();
 
         if (targetHealth)
