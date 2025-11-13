@@ -68,23 +68,23 @@ public class BuzzShooter : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log(other.gameObject.name);
-        if (other.gameObject.CompareTag("Enemy") && !gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             if (scoreManager != null)
             {
-                Debug.Log("Adding points for Enemy");
+                //Debug.Log("Adding points for Enemy");
                 scoreManager.AddPoints(5);  // give points for an enemy
             }            
         }
-        if (other.gameObject.CompareTag("Saw") && !gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Saw"))
         {
             //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             if (scoreManager != null)
             {
-                Debug.Log("Adding points for Saw Projectile");
+                //Debug.Log("Adding points for Saw Projectile");
                 scoreManager.AddPoints(1);   // give points for an enemy projectile
             }    
         }
