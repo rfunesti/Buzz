@@ -41,7 +41,7 @@ public class Score : MonoBehaviour
     //}
     public void AddPoints(int amount)
     {
-        //Debug.Log("in AddPoints method");
+        Debug.Log("in AddPoints method");
         score += amount;
         scoreDisplay.text = "Score: " + score.ToString();
 

@@ -16,6 +16,30 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void HealDamage(int amount)
+    {
+        //Debug.Log($"in HealDamage function");
+        
+        if (healthAmount < 3 && healthAmount > 0)
+        {
+            healthAmount += amount;
+        }
+    }
+
+    public static void TryHealTarget(GameObject target, int amount)
+    {
+        Health targetHealth = target.GetComponent<Health>();
+        //Debug.Log($"in TryHealDamage function");       
+        if (targetHealth)
+        {
+            targetHealth.HealDamage(amount);
+        }
+        if (!targetHealth)
+        {
+            Debug.Log("no targetHealth component");
+        }
+    }
+
     public static void TryDamageTarget(GameObject target, int damageAmount)
     {
         Health targetHealth = target.GetComponent<Health>();
@@ -27,7 +51,7 @@ public class Health : MonoBehaviour
         }
         if (!targetHealth)
         {
-            //Debug.Log("no targetHealth component");
+            Debug.Log("no targetHealth component");
         }
     }
 

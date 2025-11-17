@@ -6,6 +6,8 @@ public class BuzzShooter : MonoBehaviour
     public GameObject projectilePrefab; // The projectile prefab
     public Transform firePoint;          // The point where the projectile spawns
     public float projectileSpeed = 10f;  // Speed of the projectile
+    public GameObject explosionPrefab;
+
 
     [Header("Direction")]
     public bool facingRight = true;      // Used to track facing direction
@@ -13,7 +15,7 @@ public class BuzzShooter : MonoBehaviour
     [Header("Scoring")]
     public Score scoreManager; // drag your Score object into this in the Inspector
 
-    void Start()
+    void Awake()
     {
         if (scoreManager == null)
         {
@@ -41,7 +43,7 @@ public class BuzzShooter : MonoBehaviour
     {
         if (projectilePrefab == null || firePoint == null)
         {
-            //Debug.LogWarning("ProjectileShooter is missing a prefab or firePoint reference!");
+            Debug.LogWarning("ProjectileShooter is missing a prefab or firePoint reference!");
             return;
         }
 
@@ -68,10 +70,12 @@ public class BuzzShooter : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log(other.gameObject.name);
+        //Debug.Log(gameObject.name);
         if (other.gameObject.CompareTag("Enemy"))
         {
-            //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
+            Destroy(gameObject);
             if (scoreManager != null)
             {
                 //Debug.Log("Adding points for Enemy");
