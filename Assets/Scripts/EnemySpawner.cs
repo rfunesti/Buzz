@@ -15,15 +15,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnTime = Random.Range(timeToSpawnMin, timeToSpawnMax);
-        enemyInstances = new GameObject[numberOfInstances];
-
-        for (int i = 0; i < numberOfInstances; i++)
-        {
-            enemyInstances[i] = Instantiate(enemyPrefab);
-            enemyInstances[i].transform.position = transform.position;
-            enemyInstances[i].SetActive(false);
-        }
+        ReloadEnemy();
     }
 
     // Update is called once per frame
@@ -38,11 +30,29 @@ public class EnemySpawner : MonoBehaviour
         }
 
     }
+
+    void ReloadEnemy()
+    {
+        spawnTime = Random.Range(timeToSpawnMin, timeToSpawnMax);
+        enemyInstances = new GameObject[numberOfInstances];
+
+        for (int i = 0; i < numberOfInstances; i++)
+        {
+            enemyInstances[i] = Instantiate(enemyPrefab);
+            enemyInstances[i].transform.position = transform.position;
+            enemyInstances[i].SetActive(false);
+        }
+    }
+
     void SpawnEnemy()
     {
         enemyInstances[instanceIndex].SetActive(true);
         enemyInstances[instanceIndex].transform.position = transform.position;
         instanceIndex++;
-        if (instanceIndex == numberOfInstances) instanceIndex = 0;
+        if (instanceIndex == numberOfInstances)
+        {
+            instanceIndex = 0;
+            ReloadEnemy();
+        }
     }
 }

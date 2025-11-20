@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
         }
         if (!targetHealth)
         {
-            Debug.Log("no targetHealth component");
+            //Debug.Log("no targetHealth component");
         }
     }
 
