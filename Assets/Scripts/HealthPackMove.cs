@@ -30,8 +30,13 @@ public class HealthPackMove : MonoBehaviour
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Debug.Log("I collided with: " + other.name);
+        if (other.gameObject.CompareTag("Player"))
         {
             Health.TryHealTarget(other.gameObject, 1);
+            Destroy(gameObject);
         }
     }
+}
