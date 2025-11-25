@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject enemyPrefab;
     public GameObject enemySpawner;
+
     // set up for Object Pooling
     [Header("Objects Loaded")]
     public GameObject[] enemyInstances; // array that will contain object instances

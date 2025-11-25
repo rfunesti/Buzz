@@ -23,10 +23,10 @@ public class HealthPackMove : MonoBehaviour
             // Make sure this calculation is frame rate independent (hint: use Time.deltaTime)
             transform.position += Vector3.left * speed * Time.deltaTime;
 
-            // TODO: If the obstalce is off screen to the left, destroy this GameObject (hint: Destroy(gameObject))
+            // TODO: If the obstacle is off screen to the left, destroy this GameObject (hint: Destroy(gameObject))
             if (transform.position.x <= -endRange)
             {
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
 

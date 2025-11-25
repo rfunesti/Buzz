@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4199568197775627626}
   - component: {fileID: 8638898536221215959}
   - component: {fileID: 601887801525095331}
+  - component: {fileID: 7804803748098790877}
   - component: {fileID: 241285143505182031}
   - component: {fileID: 7538648628776269386}
   - component: {fileID: 9047769794143376433}
@@ -97,6 +98,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   jumpForce: 9
   isFalling: 1
+--- !u!114 &7804803748098790877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067492465020225723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bc78d4e28584b41b0e0a1e6105e36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimation
 --- !u!212 &241285143505182031
 SpriteRenderer:
   serializedVersion: 2

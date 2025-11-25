@@ -7,6 +7,8 @@ public class BuzzShooter : MonoBehaviour
     public Transform firePoint;          // The point where the projectile spawns
     public float projectileSpeed = 10f;  // Speed of the projectile
     public GameObject explosionPrefab;
+    public int enemyPoint = 5;
+    public int sawPoint = 1;
 
 
     [Header("Direction")]
@@ -79,19 +81,19 @@ public class BuzzShooter : MonoBehaviour
             if (scoreManager != null)
             {
                 //Debug.Log("Adding points for Enemy");
-                scoreManager.AddPoints(5);  // give points for an enemy
+                scoreManager.AddPoints(enemyPoint);  // give points for an enemy
             }            
         }
         if (other.gameObject.CompareTag("Saw"))
         {
-            //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
+            Destroy(gameObject);
             if (scoreManager != null)
             {
                 //Debug.Log("Adding points for Saw Projectile");
-                scoreManager.AddPoints(1);   // give points for an enemy projectile
+                scoreManager.AddPoints(sawPoint);   // give points for an enemy projectile
             }    
         }
     }
-
 }

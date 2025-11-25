@@ -25,7 +25,7 @@ public class BuzzSawMove : MonoBehaviour
         // TODO: If the obstalce is off screen to the left, destroy this GameObject (hint: Destroy(gameObject))
         if (transform.position.x <= -endRange)
         {
-            gameObject.SetActive(false);
+           Destroy(gameObject);
         }
     }
 
