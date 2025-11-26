@@ -9,9 +9,8 @@ public class PlayerUI : MonoBehaviour
 
     void Awake()
     {
-        // ToDo: Use FindObjectOfType of find a Health script in the scene.
-        playerHealth = FindFirstObjectByType<Health>();
-        //Debug.Log($"playerHealth Amount: {playerHealth.healthAmount}");
+        // FindFirstObjectOfType finds a Health script in the scene.
+        playerHealth = FindFirstObjectByType<Health>();        
     }
 
     // Update is called once per frame
@@ -31,18 +30,23 @@ public class PlayerUI : MonoBehaviour
     void UpdateHealth()
     {
         health = playerHealth.healthAmount;
-        //Debug.Log("In update health");
 
-        // ToDo: Create a for loop that will loop through the heart images array.
-        /*
-            For each iteration(i), if the current value of i, is less than health, 
+        /*  This for loop will loop through the heart images array.
+            For each iteration(i), if the current value of i is less than health, 
             set that heart to be enabled (heartImages[i].enabled = true).
             Otherwise, set that heart to be disabled (heartImages[i].enabled = false).
-                */
+        */
+
         for (int i = 0; i < heartImages.Length; i++)
         {
-            if (i < health) heartImages[i].enabled = true;
-            else heartImages[i].enabled = false;
+            if (i < health)
+            {
+                heartImages[i].enabled = true;
+            }
+            else
+            {
+                heartImages[i].enabled = false;
+            }
         }
     }
 }

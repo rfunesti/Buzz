@@ -12,6 +12,7 @@ public class HealthSpawner : MonoBehaviour
     public float timeToSpawnMin = 10f;
     public float timeToSpawnMax = 20f;
     public float spawnTime;
+    
     // Start is called before the first frame update
     void Start()
     {

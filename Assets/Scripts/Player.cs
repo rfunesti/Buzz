@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     // force to add.
     public float jumpForce = 5.0f;
     public bool isFalling = true;
+    
     // Start is called before the first frame update
     void Start()
     {
