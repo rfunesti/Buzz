@@ -12,6 +12,8 @@ public class HealthSpawner : MonoBehaviour
     public float timeToSpawnMin = 10f;
     public float timeToSpawnMax = 20f;
     public float spawnTime;
+
+    bool moreHealth = true;
     
     // Start is called before the first frame update
     void Start()
@@ -41,10 +43,18 @@ public class HealthSpawner : MonoBehaviour
     }
     void SpawnHealth()
     {
-        healthInstances[instanceIndex].SetActive(true);
-        healthInstances[instanceIndex].transform.position = transform.position;
-        instanceIndex++;
-        if (instanceIndex == numberOfInstances) instanceIndex = 0;
+        if (moreHealth)
+        {
+            healthInstances[instanceIndex].SetActive(true);
+            healthInstances[instanceIndex].transform.position = transform.position;
+            instanceIndex++;
+            if (instanceIndex == numberOfInstances)
+            {
+                instanceIndex = 0;
+                moreHealth = false;
+            }
+        }
+
     }
 }
 

@@ -35,7 +35,7 @@ public class HealthPackMove : MonoBehaviour
         //Debug.Log("I collided with: " + other.name);
         if (other.gameObject.CompareTag("Player"))
         {
-            Health.TryHealTarget(other.gameObject, 1);
+            Health.TryHealTarget(other.gameObject, 1);            
             Destroy(gameObject);
         }
     }

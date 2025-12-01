@@ -71,16 +71,13 @@ public class BuzzShooter : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log(other.gameObject.name);
-        //Debug.Log(gameObject.name);
         if (other.gameObject.CompareTag("Enemy"))
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             Destroy(gameObject);
             if (scoreManager != null)
-            {
-                //Debug.Log("Adding points for Enemy");
+            {                
                 scoreManager.AddPoints(enemyPoint);  // give points for an enemy
             }            
         }
@@ -90,8 +87,7 @@ public class BuzzShooter : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
             if (scoreManager != null)
-            {
-                //Debug.Log("Adding points for Saw Projectile");
+            {                
                 scoreManager.AddPoints(sawPoint);   // give points for an enemy projectile
             }    
         }
