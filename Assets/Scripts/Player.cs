@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         // force to the rigidbody.
         if (!isFalling)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             }
