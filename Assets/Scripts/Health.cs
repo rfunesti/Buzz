@@ -1,27 +1,10 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 
 public class Health : MonoBehaviour
 {
     public int healthAmount = 3;
-
-    public void TakeDamage(int amount)
-    {
-        healthAmount -= amount;
-        GameFeel.AddCameraShake(0.1f);
-        if (healthAmount <= 0)
-        {
-            GameManager.instance.Restart();
-        }
-    }
-
-    public void HealDamage(int amount)
-    {        
-        if (healthAmount < 3 && healthAmount > 0)
-        {
-            healthAmount += amount;
-        }
-    }
 
     public static void TryHealTarget(GameObject target, int amount)
     {
@@ -52,4 +35,21 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int amount)
+    {
+        healthAmount -= amount;
+        GameFeel.AddCameraShake(0.1f);
+        if (healthAmount <= 0)
+        {
+            GameManager.instance.Restart();
+        }
+    }
+
+    public void HealDamage(int amount)
+    {
+        if (healthAmount < 3 && healthAmount > 0)
+        {
+            healthAmount += amount;
+        }
+    }
 }
