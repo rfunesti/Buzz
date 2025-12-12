@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class HealthSpawner : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+{    
     public GameObject healthPrefab;
     // set up for Object Pooling
     public GameObject[] healthInstances; // array that will contain object instances
@@ -11,10 +12,13 @@ public class HealthSpawner : MonoBehaviour
 
     public float timeToSpawnMin = 10f;
     public float timeToSpawnMax = 20f;
-    public float spawnTime;
 
-    bool moreHealth = true;
-    
+    [SerializeField]
+    private float spawnTime;
+
+    public bool moreHealth = true;
+    public Text noMoreHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,23 +32,22 @@ public class HealthSpawner : MonoBehaviour
             healthInstances[i].SetActive(false);
         }
     }
-
     // Update is called once per frame
     void Update()
     {
-        spawnTime -= Time.deltaTime;
-
-        if (spawnTime < 0.0f)
+        if (moreHealth)
         {
-            SpawnHealth();
-            spawnTime = Random.Range(timeToSpawnMin, timeToSpawnMax);
-        }
+            spawnTime -= Time.deltaTime;
 
+            if (spawnTime < 0.0f)
+            {
+                SpawnHealth();
+                spawnTime = Random.Range(timeToSpawnMin, timeToSpawnMax);
+            }
+        }
     }
     void SpawnHealth()
     {
-        if (moreHealth)
-        {
             healthInstances[instanceIndex].SetActive(true);
             healthInstances[instanceIndex].transform.position = transform.position;
             instanceIndex++;
@@ -52,9 +55,21 @@ public class HealthSpawner : MonoBehaviour
             {
                 instanceIndex = 0;
                 moreHealth = false;
-            }
+                ShowNoHealthMessage();
         }
+    }
+    public void ShowNoHealthMessage()
+    {
+        if (noMoreHealth == null) return;
 
+        noMoreHealth.text = "You're out of health packs!!";            
+        StartCoroutine(HideMessage());         
+    }
+
+    IEnumerator HideMessage()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        noMoreHealth.text = "";
     }
 }
 
