@@ -12,10 +12,12 @@ public class Player : MonoBehaviour
     // force to add.
     public float jumpForce = 5.0f;
     public bool isFalling = true;
-    
+    public bool jump;
+
     // Start is called before the first frame update
     void Start()
     {
+        //jump = Input.GetKeyDown(KeyCode.J);
         // TODO: Use GetComponent to get a reference to attached Rigidbody2D
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
@@ -29,9 +31,15 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-                rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+                Jump();
             }
         }
+        if (MobileInput.I != null)
+        {
+            jump |= MobileInput.I.jumpPressed;            
+        }
+
+        if (jump) Jump();        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -49,5 +57,10 @@ public class Player : MonoBehaviour
         {
             isFalling = true;
         }
+    }
+
+    private void Jump()
+    {
+        rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
 }
