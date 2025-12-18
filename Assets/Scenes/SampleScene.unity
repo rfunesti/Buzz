@@ -2418,6 +2418,10 @@ PrefabInstance:
       propertyPath: noMoreHealth
       value: 
       objectReference: {fileID: 1464887566}
+    - target: {fileID: 691895915349074404, guid: a34fbd6b0a221b642a76b3ddbbd66cef, type: 3}
+      propertyPath: noMoreHealth
+      value: 
+      objectReference: {fileID: 1464887566}
     - target: {fileID: 1067492465020225723, guid: a34fbd6b0a221b642a76b3ddbbd66cef, type: 3}
       propertyPath: m_Name
       value: Player

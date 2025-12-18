@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuzzShooter : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class BuzzShooter : MonoBehaviour
 
     [Header("Scoring")]
     public Score scoreManager; // drag your Score object into this in the Inspector
+
+    //TESTING AREA
+    public Text noMoreHealth;
 
     void Awake()
     {
@@ -39,8 +43,13 @@ public class BuzzShooter : MonoBehaviour
         if (MobileInput.I != null)
         {
             fire |= MobileInput.I.firePressed;
+            noMoreHealth.text = "fire: " + fire.ToString();
         }
-        if (fire) Fire();
+        if (fire)
+        {
+            Fire();
+            fire = false;
+        }
         
         // Example of flipping direction (optional)
         //if (Input.GetKeyDown(KeyCode.LeftArrow)) facingRight = false;
