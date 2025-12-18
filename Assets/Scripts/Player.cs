@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         {
             jump |= MobileInput.I.jumpPressed;            
         }
-        //noMoreHealth.text = "jump" + jump.ToString();
+        noMoreHealth.text = "jump" + jump.ToString();
         if (jump && !isFalling)
         {
             Jump();
