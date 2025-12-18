@@ -13,41 +13,38 @@ public class Player : MonoBehaviour
     // force to add.
     public float jumpForce = 5.0f;
     public bool isFalling = true;
-    public bool jump;
+   
 
     //TESTING AREA
     public Text noMoreHealth;
 
     // Start is called before the first frame update
     void Start()
-    {
-        //jump = Input.GetKeyDown(KeyCode.J);
-        // TODO: Use GetComponent to get a reference to attached Rigidbody2D
+    {        
+        // Use GetComponent to get a reference to attached Rigidbody2D
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // TODO: On the frame the player presses down the space bar, add an instant upwards
-        // force to the rigidbody.
-        if (!isFalling)
-        {
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                Jump();
-            }
-        }
-        if (MobileInput.I != null)
-        {
-            jump |= MobileInput.I.jumpPressed;            
-        }
-        noMoreHealth.text = "jump" + jump.ToString();
-        if (jump && !isFalling)
+        bool jumpThisFrame = false;
+        // Keyboard (already 1-frame)
+        if (Input.GetKeyDown(KeyCode.J)) jumpThisFrame = true;
+
+        // Mobile (may be held, but we only care about this frame)
+        if (MobileInput.I != null && MobileInput.I.jumpPressed) jumpThisFrame = true;
+        
+        // only jump when grounded
+        if (jumpThisFrame && !isFalling)
         {
             Jump();
-            jump = false;
         }
+        noMoreHealth.text = $"jumpThisFrame:{jumpThisFrame} isFalling:{isFalling}";
+    }
+        private void Jump()
+    {
+        rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -67,8 +64,5 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Jump()
-    {
-        rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-    }
+
 }
