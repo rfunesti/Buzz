@@ -43,7 +43,11 @@ public class Player : MonoBehaviour
             jump |= MobileInput.I.jumpPressed;            
         }
         noMoreHealth.text = "jump" + jump.ToString();
-        if (jump && !isFalling) Jump();        
+        if (jump && !isFalling)
+        {
+            Jump();
+            jump = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
