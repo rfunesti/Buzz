@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
             jump |= MobileInput.I.jumpPressed;            
         }
 
-        if (jump) Jump();        
+        if (jump && !isFalling) Jump();        
     }
 
     private void OnCollisionEnter2D(Collision2D other)

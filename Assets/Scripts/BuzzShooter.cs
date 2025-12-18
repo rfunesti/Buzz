@@ -43,8 +43,8 @@ public class BuzzShooter : MonoBehaviour
         if (fire) Fire();
         
         // Example of flipping direction (optional)
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) facingRight = false;
-        if (Input.GetKeyDown(KeyCode.RightArrow)) facingRight = true;
+        //if (Input.GetKeyDown(KeyCode.LeftArrow)) facingRight = false;
+        //if (Input.GetKeyDown(KeyCode.RightArrow)) facingRight = true;
     }
 
     void Fire()
