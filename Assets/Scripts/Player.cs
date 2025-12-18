@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 // TODO: Script should require a Rigidbody2D component
 [RequireComponent(typeof(Rigidbody2D))]
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
    
 
     //TESTING AREA
-    public Text noMoreHealth;
+    //public Text noMoreHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         {
             Jump();
         }
-        noMoreHealth.text = $"jumpThisFrame:{jumpThisFrame} isFalling:{isFalling}";
+        //noMoreHealth.text = $"jumpThisFrame:{jumpThisFrame} isFalling:{isFalling}";
     }
         private void Jump()
     {
