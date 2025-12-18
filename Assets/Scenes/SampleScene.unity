@@ -2207,8 +2207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b7d344ba52f834ba17fa4c40d1c36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoblieInput
-  leftHeld: 0
-  rightHeld: 0
   jumpPressed: 0
   firePressed: 0
 --- !u!4 &2037280225
@@ -2416,6 +2414,10 @@ PrefabInstance:
       propertyPath: isFalling
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 601887801525095331, guid: a34fbd6b0a221b642a76b3ddbbd66cef, type: 3}
+      propertyPath: noMoreHealth
+      value: 
+      objectReference: {fileID: 1464887566}
     - target: {fileID: 1067492465020225723, guid: a34fbd6b0a221b642a76b3ddbbd66cef, type: 3}
       propertyPath: m_Name
       value: Player
