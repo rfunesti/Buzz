@@ -609,7 +609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -4.27, y: -1.5}
+  m_AnchoredPosition: {x: -18, y: -1.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330290920
@@ -634,7 +634,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2acb579608e9f3a41a0f0163b0f86461, type: 3}
-    m_FontSize: 20
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1298,7 +1298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 152.4, y: -79.4}
+  m_AnchoredPosition: {x: 166, y: -79.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1464887564
@@ -2291,7 +2291,7 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: 2acb579608e9f3a41a0f0163b0f86461, type: 3}
     - target: {fileID: 3287776444335364106, guid: 9b9cae2ccfc3b80478964c9a2a171c3c, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 20
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3570557339556363712, guid: 9b9cae2ccfc3b80478964c9a2a171c3c, type: 3}
       propertyPath: m_Pivot.x
@@ -2375,15 +2375,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3650863544373555024, guid: 9b9cae2ccfc3b80478964c9a2a171c3c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -26.6
+      value: -28
       objectReference: {fileID: 0}
     - target: {fileID: 3907045955860296419, guid: 9b9cae2ccfc3b80478964c9a2a171c3c, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 2acb579608e9f3a41a0f0163b0f86461, type: 3}
     - target: {fileID: 3907045955860296419, guid: 9b9cae2ccfc3b80478964c9a2a171c3c, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907045955860296419, guid: 9b9cae2ccfc3b80478964c9a2a171c3c, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 20
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4190394120155814614, guid: 9b9cae2ccfc3b80478964c9a2a171c3c, type: 3}
       propertyPath: m_AnchoredPosition.y
