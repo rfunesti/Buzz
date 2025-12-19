@@ -31,20 +31,32 @@ public class BuzzShooter : MonoBehaviour
     }
     void Update()
     {
-        // Example: press space to shoot
-        if (Input.GetKeyDown(KeyCode.F))
+        bool fireThisFrame = false;
+        // Keyboard (already 1-frame)
+        if (Input.GetKeyDown(KeyCode.F)) fireThisFrame = true;
+
+        // Mobile (may be held, but we only care about this frame)
+        if (MobileInput.I != null && MobileInput.I.firePressed) fireThisFrame = true;
+
+        // only jump when grounded
+        if (fireThisFrame)
         {
             Fire();
         }
-        if (MobileInput.I != null)
-        {
-            fire |= MobileInput.I.firePressed;
-        }
-        if (fire)
-        {
-            Fire();
-            fire = false;
-        }
+        //// Example: press space to shoot
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    Fire();
+        //}
+        //if (MobileInput.I != null)
+        //{
+        //    fire |= MobileInput.I.firePressed;
+        //}
+        //if (fire)
+        //{
+        //    Fire();
+        //    fire = false;
+        //}
         
         // Example of flipping direction (optional)
         //if (Input.GetKeyDown(KeyCode.LeftArrow)) facingRight = false;

@@ -20,6 +20,8 @@ public class Score : MonoBehaviour
     }
     void OnDestroy()
     {
+        //ResetHighScore(); // use if reset needed for high score
+
         PlayerPrefs.SetInt("High Score", highScore);
         PlayerPrefs.Save();
     }
@@ -50,5 +52,14 @@ public class Score : MonoBehaviour
             highScore = score;
             highScoreDisplay.text = "High Score: " + highScore.ToString();
         }
+    }
+
+
+    public void ResetHighScore()
+    {
+        highScore = 0;
+        PlayerPrefs.SetInt("High Score", 0);
+        PlayerPrefs.Save();
+        Debug.Log("High Score reset to 0");
     }
 }
