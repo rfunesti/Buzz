@@ -9,7 +9,7 @@ public class BuzzShooter : MonoBehaviour
     public GameObject explosionPrefab;
     public int enemyPoint = 5;
     public int sawPoint = 1;
-
+    public bool fire;
 
     [Header("Direction")]
     public bool facingRight = true;      // Used to track facing direction
@@ -19,6 +19,7 @@ public class BuzzShooter : MonoBehaviour
 
     void Awake()
     {
+        //fire = Input.GetKeyDown(KeyCode.F);
         if (scoreManager == null)
         {
             scoreManager = FindFirstObjectByType<Score>();
@@ -33,15 +34,24 @@ public class BuzzShooter : MonoBehaviour
         // Example: press space to shoot
         if (Input.GetKeyDown(KeyCode.F))
         {
-            FireProjectile();
+            Fire();
         }
-
+        if (MobileInput.I != null)
+        {
+            fire |= MobileInput.I.firePressed;
+        }
+        if (fire)
+        {
+            Fire();
+            fire = false;
+        }
+        
         // Example of flipping direction (optional)
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) facingRight = false;
-        if (Input.GetKeyDown(KeyCode.RightArrow)) facingRight = true;
+        //if (Input.GetKeyDown(KeyCode.LeftArrow)) facingRight = false;
+        //if (Input.GetKeyDown(KeyCode.RightArrow)) facingRight = true;
     }
 
-    void FireProjectile()
+    void Fire()
     {
         if (projectilePrefab == null || firePoint == null)
         {

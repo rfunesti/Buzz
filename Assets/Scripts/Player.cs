@@ -1,4 +1,5 @@
 using UnityEngine;
+//using UnityEngine.UI;
 
 // TODO: Script should require a Rigidbody2D component
 [RequireComponent(typeof(Rigidbody2D))]
@@ -12,26 +13,38 @@ public class Player : MonoBehaviour
     // force to add.
     public float jumpForce = 5.0f;
     public bool isFalling = true;
-    
+   
+
+    //TESTING AREA
+    //public Text noMoreHealth;
+
     // Start is called before the first frame update
     void Start()
-    {
-        // TODO: Use GetComponent to get a reference to attached Rigidbody2D
+    {        
+        // Use GetComponent to get a reference to attached Rigidbody2D
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // TODO: On the frame the player presses down the space bar, add an instant upwards
-        // force to the rigidbody.
-        if (!isFalling)
+        bool jumpThisFrame = false;
+        // Keyboard (already 1-frame)
+        if (Input.GetKeyDown(KeyCode.J)) jumpThisFrame = true;
+
+        // Mobile (may be held, but we only care about this frame)
+        if (MobileInput.I != null && MobileInput.I.jumpPressed) jumpThisFrame = true;
+        
+        // only jump when grounded
+        if (jumpThisFrame && !isFalling)
         {
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-            }
+            Jump();
         }
+        //noMoreHealth.text = $"jumpThisFrame:{jumpThisFrame} isFalling:{isFalling}";
+    }
+        private void Jump()
+    {
+        rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -50,4 +63,6 @@ public class Player : MonoBehaviour
             isFalling = true;
         }
     }
+
+
 }
