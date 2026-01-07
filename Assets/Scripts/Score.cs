@@ -25,22 +25,22 @@ public class Score : MonoBehaviour
         PlayerPrefs.SetInt("High Score", highScore);
         PlayerPrefs.Save();
     }
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    timer += Time.deltaTime * timerRate;
-    //    if (timer > 1f)
-    //    {
-    //        score++;
-    //        scoreDisplay.text = "Score: " + score.ToString();
-    //        timer = 0f;
+    //Update is called once per frame
+    void Update()
+    {
+        timer += Time.deltaTime * timerRate;
+        if (timer > 1f)
+        {
+            score++;
+            scoreDisplay.text = "Score: " + score.ToString();
+            timer = 0f;
 
-    //        if (score > highScore)
-    //        {
-    //            highScore = score;
-    //        }
-    //    }
-    //}
+            if (score > highScore)
+            {
+                highScore = score;
+            }
+        }
+    }
     public void AddPoints(int amount)
     {
         //Debug.Log("in AddPoints method");
