@@ -1336,12 +1336,12 @@ MonoBehaviour:
   numberOfInstances: 10
   instanceIndex: 0
   timeToSpawnMin: 1
-  timeToSpawnMax: 5
+  timeToSpawnMax: 3
   spawnTime: 0
   minY: -2.76
   maxY: 0.5
-  moveSpeed: 6
-  waitTime: 0.4
+  moveSpeed: 7
+  waitTime: 0.1
 --- !u!4 &1551426108
 Transform:
   m_ObjectHideFlags: 0
