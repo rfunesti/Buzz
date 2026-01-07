@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BuzzShooter : MonoBehaviour
+public class PlayerShooter : MonoBehaviour
 {
     [Header("Projectile Settings")]
     public GameObject projectilePrefab; // The projectile prefab
