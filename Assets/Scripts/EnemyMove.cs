@@ -18,7 +18,7 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // TODO: Move the obstacle to the left at a constant rate. 
+        // Move the obstacle to the left at a constant rate. 
         // Make sure this calculation is frame rate independent (hint: use Time.deltaTime)
         transform.position += Vector3.left * speed * Time.deltaTime;
 
