@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     {
         bool jumpThisFrame = false;
         // Keyboard (already 1-frame)
-        if (Input.GetKeyDown(KeyCode.J)) jumpThisFrame = true;
+        if (Input.GetKeyDown(KeyCode.Space)) jumpThisFrame = true;
 
         // Mobile (may be held, but we only care about this frame)
         if (MobileInput.I != null && MobileInput.I.jumpPressed) jumpThisFrame = true;
